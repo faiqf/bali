@@ -20,6 +20,19 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->template->views('content');
+	}
+	public function some()
+	{
+		header('Content-Type : apllication/json');
+
+		if ($this->input->post('inputan')) {
+		$result['sts'] = 200;
+		$result['msg'] = "ok";
+		} else {
+		$result['sts'] = 200;
+		$result['msg'] = "false";
+		}
+		echo json_encode($result);
 	}
 }
